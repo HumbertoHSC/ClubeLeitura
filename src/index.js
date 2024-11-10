@@ -8,4 +8,4 @@ const app = express()
 app.use(express.json())
 app.use(rotas)
 
-app.listen(process.env.PORT)
+app.listen(3000)
