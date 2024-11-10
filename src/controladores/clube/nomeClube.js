@@ -1,22 +1,22 @@
 const Clube = require('../../modelos/clube')
 
-const nome = async (req, res) => {
-    const { nome } = req.body
+const nomeClube = async (req, res) => {
+    const { nome, novoNome } = req.body
     const usuarioId = req.userId
 
     try {
         
-        const clube = await Clube.findByPk(nome)
+        const clube = await Clube.findOne({ where: { nome: nome } })
         
         if (!clube) {
         return res.status(404).json({ mensagem: 'Clube não encontrado' })
         }
 
-        if (clube.usuario_id !== usuarioId) {
+        if (clube.usuarioId !== usuarioId) {
         return res.status(403).json({ mensagem: 'Você não tem permissão para editar este clube' })
         }
 
-        const dadosAtualizados = { nome: nome }
+        const dadosAtualizados = { nome: novoNome }
 
         await Clube.update(dadosAtualizados, { where: { nome: nome } })
 
@@ -28,4 +28,4 @@ const nome = async (req, res) => {
     }
 }
 
-module.exports = nome
+module.exports = nomeClube

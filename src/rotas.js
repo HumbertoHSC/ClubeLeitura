@@ -22,11 +22,11 @@ rotas.delete('/usuario', validarCorpoReq(schemaUser.deletar), userController.del
 
 rotas.post('/clubes', validarCorpoReq(schemaClube.criar), clubeControladores.criar)
 
-rotas.delete('/clubes/:id', validarCorpoReq(schemaClube.deletar), clubeControladores.deletar)
+rotas.delete('/clubes', validarCorpoReq(schemaClube.deletar), clubeControladores.deletar)
 
 rotas.get('/clubes', clubeControladores.listar)
 
-rotas.patch('/clubes/:id/nome',  validarCorpoReq(schemaClube.nome), clubeControladores.nome)
-rotas.patch('/clubes/:id/descricao',  validarCorpoReq(schemaClube.descricao), clubeControladores.descricao)
+rotas.patch('/clubes/nome',  validarCorpoReq(schemaClube.nome), clubeControladores.nomeClube)
+rotas.patch('/clubes/descricao',  validarCorpoReq(schemaClube.descricao), clubeControladores.descricao)
 
 module.exports = rotas

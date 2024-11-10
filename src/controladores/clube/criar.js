@@ -2,14 +2,20 @@ const Clube = require('../../modelos/clube')
 
 const criar = async (req, res) => {
     const { nome, descricao } = req.body
-    const usuario_id = req.userId
+    const usuarioId = req.userId
 
     try {
+
+        const clubeExistente = await Clube.findOne({ where: { nome } })
+
+        if (clubeExistente) {
+            return res.status(400).json({ mensagem: 'nome informado já está cadastrado!' })
+        }
     
         const novoClube = await Clube.create({
             nome,
             descricao,
-            usuario_id
+            usuarioId
         })
 
         return res.status(201).json(novoClube)

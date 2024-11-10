@@ -6,13 +6,13 @@ const deletar = async (req, res) => {
 
     try {
         
-        const clube = await Clube.findByPk(nome)
+        const clube = await Clube.findOne({ where: { nome: nome } })
         
         if (!clube) {
         return res.status(404).json({ mensagem: 'Clube não encontrado' })
         }
 
-        if (clube.usuario_id !== usuarioId) {
+        if (clube.usuarioId !== usuarioId) {
         return res.status(403).json({ mensagem: 'Você não tem permissão para excluir este clube' })
         }
 
