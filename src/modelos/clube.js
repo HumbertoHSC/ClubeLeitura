@@ -22,7 +22,7 @@ const Clube = sequelize.define('Clube', {
   }
 }, {
   timestamps: false,
-  tableName: 'Clubes'  // Especifica o nome da tabela no banco de dados
+  tableName: 'Clubes'
 });
 
 module.exports = Clube;
