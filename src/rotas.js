@@ -25,6 +25,7 @@ rotas.delete('/usuario', validarCorpoReq(schemaUser.deletar), userController.del
 
 rotas.post('/clubes', validarCorpoReq(schemaClube.criar), clubeControladores.criar)
 rotas.post('/livro/adicionar', validarCorpoReq(schemaLivro.adicionarLivro), livroControladores.adicionar)
+rotas.post('/livro/avaliacao', validarCorpoReq(schemaLivro.avaliacao), livroControladores.avaliacao)
 
 rotas.delete('/clubes', validarCorpoReq(schemaClube.deletar), clubeControladores.deletar)
 rotas.delete('/livro/deletar', validarCorpoReq(schemaLivro.deletar), livroControladores.deletar)

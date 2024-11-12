@@ -2,6 +2,7 @@ const { DataTypes } = require('sequelize');
 const sequelize = require('../conexao');
 
 const Livro = sequelize.define('Livro', {
+  
     id: {
         type: DataTypes.INTEGER,
         autoIncrement: true,
@@ -15,7 +16,7 @@ const Livro = sequelize.define('Livro', {
         type: DataTypes.STRING,
         allowNull: false,
     },
-    clube: { // Nome da coluna ajustado para corresponder ao esquema de validação
+    clube: { 
         type: DataTypes.STRING,
         allowNull: false,
     },
